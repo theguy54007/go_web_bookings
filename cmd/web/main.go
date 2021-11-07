@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go_udemy/bookings/pkg/config"
-	"go_udemy/bookings/pkg/handlers"
-	"go_udemy/bookings/pkg/render"
+	"go_udemy/bookings/internal/config"
+	"go_udemy/bookings/internal/handlers"
+	"go_udemy/bookings/internal/render"
 	"log"
 	"net/http"
 	"time"
