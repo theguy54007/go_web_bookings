@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/gob"
 	"fmt"
 	"go_udemy/bookings/internal/config"
 	"go_udemy/bookings/internal/handlers"
+	"go_udemy/bookings/internal/models"
 	"go_udemy/bookings/internal/render"
 	"log"
 	"net/http"
@@ -18,6 +20,8 @@ var app config.AppConfig
 var session *scs.SessionManager
 
 func main() {
+
+	gob.Register(models.Reservation{})
 
 	app.InProduction = false
 
@@ -35,7 +39,7 @@ func main() {
 	}
 
 	app.TemplateCache = tc
-	app.UseCache = true
+	app.UseCache = false
 
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
